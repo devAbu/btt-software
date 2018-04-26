@@ -117,20 +117,20 @@ input[type=button] {
 
 .aboutUs {
     opacity: 0.8;
-    -webkit-transition: opacity 0.5s ease-out;
+    transition: opacity 0.5s ease-out;
     filter: grayscale(1) sepia(100);
     -webkit-filter: grayscale(1) sepia(100);
     -moz-filter: grayscale(1) sepia(100);
-    -webkit-transition: ease-out;
-    -webkit-transition-duration: 0.8s;
+    transition: ease-out;
+    transition-duration: 0.8s;
 }
 
 .aboutUs:hover {
     opacity: 1;
-    -webkit-transition: opacity 1s ease-in;
+    transition: opacity 1s ease-in;
     filter: grayscale(0) sepia(0);
     -webkit-filter: grayscale(0) sepia(0);
     -moz-filter: grayscale(0) sepia(0);
-    -webkit-transition: ease-in;
-    -webkit-transition-duration: 0.8s;
+    transition: ease-in;
+    transition-duration: 0.8s;
 }
