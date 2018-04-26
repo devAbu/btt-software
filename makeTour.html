@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" id="navScrollspy">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link link"><i class="fas fa-home mr-2"></i>Home</a>
+                    <a href="index.html" class="nav-link link active"><i class="fas fa-home mr-2"></i>Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="aboutUs.html" class="nav-link link"><i class="fas fa-users mr-2"></i>About Us</a>
@@ -51,7 +51,7 @@
                     <a href="rent.html" class="nav-link link"><i class="fas fa-car mr-2"></i>Rent-a-car</a>
                 </li>
                 <li class="nav-item">
-                    <a href="feedback.html" class="nav-link link active"><i class="far fa-smile mr-2"></i>Feedback</a>
+                    <a href="feedback.html" class="nav-link link"><i class="far fa-smile mr-2"></i>Feedback</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
@@ -82,7 +82,7 @@
                         <input type="text" placeholder="Last name..." class="form-control" style="max-width:400px;" required=""><br>
                     </div>
                     <div class="col-xs-12">
-                        <input type="email" placeholder="you@example.com" class="form-control" style="max-width:400px;" required=""><br>
+                        <input type="email" placeholder="you@example.com" class="form-control" style="max-width:400px;" required=""><br />
                     </div>
                     <table>
                         <tr>
@@ -94,10 +94,11 @@
                             </td>
                         </tr>
                     </table>
-                    <!--<div class="col-xs-12">
+                    <!--
+                    <div class="col-xs-12">
                         <input type="password" placeholder="*****" class="form-control" style="max-width:400px;" required="">
                     </div>-->
-                    <div class="col-12 mb-3">
+                    <div class="col-12 mb-3" style="margin-left:-10px !important;">
                         <a href="login.html" class="text-success">Already has account?</a>
                     </div>
                     <div class="col-xs-12  offset-4">
@@ -136,20 +137,19 @@
                             </td>
                         </tr>
                     </table>
-                    <!--
-                    <div class="col-12">
+                    <!--<div class="col-12">
                         <input type="password" placeholder="*****" class="form-control" style="max-width:400px;" required="">
                     </div>-->
                     <div class="row">
                         <!--<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-5 my-2 ml-3">
-            <button type="button" class="btn btn-outline-primary">
-                <i class="fas fa-eye"></i>
-            </button>
-        </div>-->
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-5 mr-2">
+                            <button type="button" class="btn btn-outline-primary">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>-->
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-5 mr-4">
                             <a href="register.html" class="badge ml-3 text-warning" style="text-decoration:none;"><span style="font-size:13px;">No account?</span></a>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-5 ml-5">
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-5 ml-4">
                             <a href="#" class="badge ml-4 text-primary"><span style="font-size:13px;">Forgot password?</span></a>
                         </div><br />
                     </div>
@@ -166,29 +166,82 @@
         </div>
     </div>
 
-    <section id="jumbotronFeedback" class="jumbotron2 jumbotron-fluid text-white d-flex justify-content-center align-items-center">
+    <section id="jumbotron" class="jumbotron8 jumbotron-fluid text-white d-flex justify-content-center align-items-center">
         <div class="container text-center">
             <h1 class="display-1 text-primary text-uppercase">BTT</h1>
             <p class="display-4 d-none d-sm-block">Bosnian Tourist Travel</p>
-            <p class="lead text-uppercase" style="font-size:26px;">We want your feedback</p>
-            <p class="text-primary h5 mb-3">Also, you can leave your feedback on:</p>
+            <p class="lead">Visit Bosnia & Herzegovina with us!</p>
+            <p class="lead">The best offers and price!</p>
+            <p class="text-primary h5 mb-3">Visit us on:</p>
             <a href="https://www.instagram.com/bosniant/" target="_blank" class="btn btn-lg btn-primary mb-1"><i class="fab fa-instagram mr-2" aria-hidden="true"></i>Instagram</a>
             <a href="https://www.facebook.com" target="_blank" class="btn btn-lg btn-primary mb-1"><i class="fab fa-facebook mr-2" aria-hidden="true"></i>Facebook</a>
         </div>
     </section>
 
     <section>
-        <h2 class="display-4 text-center text-info mb-5 mt-4">Be free to contact us, we are here to please you.</h2>
-        <p class="text-center h2 text-primary mb-5">Tell us what you think!</p>
-        <div class="col-9 offset-3">
-            <textarea cols="50" rows="10" class="form-control" style="max-width:550px;margin-left:50px;" placeholder="Please write your opinion..."></textarea>
-        </div>
-        <div class="col-lg-6 offset-5 ">
-            <input type="button" class="btn btn-lg btn-outline-success mt-3 ml-5 mb-2" value="SEND" />
+        <div class="row">
+            <div class="offset-1 col-3">
+                <h4 class="text-success">City:</h4>
+
+                <input class="w3-check  mr-1" type="checkbox">Sarjevo
+                <input class="w3-check mr-1" type="checkbox">Mostar
+                <input class="w3-check mr-1" type="checkbox">Jajce
+                <input class="w3-check mr-1" type="checkbox">Konjic<br />
+                <input class="w3-check  mr-1 mt-1" type="checkbox">Bjelasnica
+                <input class="w3-check mr-1" type="checkbox">Trebevic
+                <input class="w3-check mr-1" type="checkbox">Igman<br />
+                <input class="w3-check mr-1 mt-1" type="checkbox">Jahorina<br />
+                <input type="text" class="form-control mt-2" placeholder="Other..." title="For multiple places please use ','" />
+            </div>
+            <div class="col-3 mr-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h4 class="text-success">Budget:</h4>
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="number" value="0" min="0" step="10" data-number-to-fixed="2"  class="form-control currency" />
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <h4 class="text-success">No. of people:</h4>
+
+                        <input type="number" value="0" min="0" step="1" max="15" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 mt-4 ml-5">
+                <h4 class="text-success">Price:</h4>
+                <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="number" value="0" readonly data-number-to-fixed="2" style="height:50px;" class="form-control currency" />
+                </div>
+            </div>
+            <div class="col-3 offset-1 mt-4 mb-3">
+                <h4 class="text-success">Tour Length (days):</h4>
+
+                <input type="number" value="0" min="0" max="10" step="1" class="form-control" />
+            </div>
+            <div class=" col-3 mt-4">
+                <h4 class="text-success">Period:</h4>
+
+                <input class="w3-check  mr-1" type="checkbox" >Zima
+                <input class="w3-check mr-1" type="checkbox">Ljeto
+                <input class="w3-check mr-1" type="checkbox">Proljece
+                <input class="w3-check mr-1" type="checkbox">Jesen<br />
+            </div>
+            <div class="col-3 offset-1 mt-4">
+                <h4 class="text-success">Interpreter:</h4>
+
+                <input type="radio" checked name="interpreter" />Yes
+                <input type="radio" name="interpreter"/>No
+            </div>
         </div>
     </section>
 
-    <footer class="bg-secondary" style="margin-top:0px;">
+    
+
+
+    <footer class="bg-secondary">
         <div class="row no-gutters">
             <div class="col-6 mt-5">
                 <img src="images/icon.png" alt="logo" class="img-fluid ml-2" width="100" height="100" />
@@ -199,7 +252,7 @@
             <div class="col-5 mt-5 offset-1">
                 <h1 class="text-warning mb-5 text-uppercase" style="margin-top:13px !important; opacity:0.7;">Contact info</h1>
                 <ul class="list-group list-group-flush" style="width:500px; border:none;">
-                    <li class="list-group-item text-warning bg-secondary mt-4">Address: <span class="ml-5"><a href="#" id="map" class="text-warning" data-toggle="modal" data-target="#map7" style="text-decoration:none;"><i class="fas fa-map-marker mr-2"></i>Grada Bakua 11, Sarajevo, B&H</a></span></li>
+                    <li class="list-group-item text-warning bg-secondary mt-4">Address: <span class="ml-5"><a href="#" id="map" data-toggle="modal" class="text-warning" data-target="#map7" style="text-decoration:none;"><i class="fas fa-map-marker mr-2"></i>Grada Bakua 11, Sarajevo, B&H</a></span></li>
                     <li class="list-group-item text-warning bg-secondary">Phone: <span style="margin-left:60px;"><a href="tel:+38761091675" class="text-warning" style="text-decoration:none;"><i class="fas fa-phone mr-2"></i>(+387)61 091 675</a></span></li>
                     <li class="list-group-item text-warning bg-secondary">E-mail: <span style="margin-left:60px;"><a href="mailto:abdulrahman.almonajed@gmail.com" style="text-decoration:none;" class="text-warning"><i class="far fa-envelope mr-2"></i>abdulrahman.almonajed@gmail.com</a></span></li>
                     <li class="list-group-item text-warning bg-secondary">
