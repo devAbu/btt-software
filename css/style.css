@@ -1,5 +1,5 @@
 .jumbotron {
-    background-image: url('.../images/jumbotron.jpg');
+    background-image: url('../images/jumbotron.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -7,7 +7,7 @@
 }
 
 #bg {
-    background-image: url('.../images/bg.png');
+    background-image: url('../images/bg.png');
     background-size: cover;
     opacity: 0.7;
     background-position: center;
@@ -20,14 +20,14 @@
 }
 
 #why {
-    background-image: url('.../images/why.jpg');
+    background-image: url('../images/why.jpg');
     background-position: center;
     background-size: cover;
     height: 182px !important;
 }
 
 .why-2 {
-    background-image: url('.../images/why2.jpg');
+    background-image: url('../images/why2.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -81,7 +81,7 @@ input[type=button] {
 }
 
 .bg {
-    background-image: url('.../images/aboutUsBG.jpg');
+    background-image: url('../images/aboutUsBG.jpg');
     background-size: cover;
     background-position: center;
     /* max-height: 330px;*/
@@ -92,7 +92,7 @@ input[type=button] {
 }
 
 #jumbotronFeedback {
-    background-image: url('.../images/feedback.jpg');
+    background-image: url('../images/feedback.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -100,7 +100,7 @@ input[type=button] {
 }
 
 .jumbotron8 {
-    background-image: url('.../images/make.jpg');
+    background-image: url('../images/make.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
