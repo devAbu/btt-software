@@ -79,3 +79,30 @@ input[type=button] {
 #map:hover {
     color: rgb(160, 134, 0) !important;
 }
+
+.bg {
+    background-image: url('images/aboutUsBG.jpg');
+    background-size: cover;
+    background-position: center;
+    /* max-height: 330px;*/
+}
+
+#abufb:hover {
+    cursor: pointer;
+}
+
+#jumbotronFeedback {
+    background-image: url('images/feedback.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.jumbotron8 {
+    background-image: url('images/make.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
