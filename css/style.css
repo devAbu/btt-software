@@ -1,0 +1,24 @@
+.jumbotron {
+    background-image: url('images/jumbotron.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.link:hover {
+    color: rgb(0, 41, 136) !important;
+}
+
+#why {
+    background-image: url('images/why.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 182px !important;
+}
+
+.why-2 {
+    background-image: url('images/why2.jpg');
+    background-size: cover;
+    background-position: center;
+}
