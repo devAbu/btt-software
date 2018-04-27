@@ -134,3 +134,54 @@ input[type=button] {
     transition: ease-in;
     transition-duration: 0.8s;
 }
+.jumbotron3 {
+    background-image: url('images/tours.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+.tourPlans {
+    opacity: 0.8;
+    -webkit-transition: opacity ease-out;
+    filter: grayscale(1) sepia(1);
+    -webkit-filter: grayscale(1) sepia(1);
+    -moz-filter: grayscale(1) sepia(1);
+    -webkit-transition: ease-out;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+.tourPlans:hover {
+    opacity: 1;
+    -webkit-transition: opacity 0.4s ease-in;
+    filter: grayscale(0) sepia(0);
+    -webkit-filter: grayscale(0) sepia(0);
+    -moz-filter: grayscale(0) sepia(0);
+    -webkit-transition: ease-in;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transition-duration: 0.5s;
+}
+.jumbotron5 {
+    background-image: url('images/places.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+.best {
+    filter: sepia(1);
+    -webkit-filter: sepia(1);
+    -moz-filter: sepia(1);
+    transition: all 0.4s ease-out;
+}
+
+.best:hover {
+    filter: sepia(0);
+    -webkit-filter: sepia(0);
+    -moz-filter: sepia(0);
+    transition: all 0.6s ease-in;
+    transform: scale3d(2);
+}
