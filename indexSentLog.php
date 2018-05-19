@@ -32,7 +32,7 @@ if ($_REQUEST['task'] == "login") {
 
                     session_start();
                     $_SESSION['email'] == $emailLog;
-                    header.location('index')
+                    header . location('index');
                 } else {
                     echo ('pass');
                 }

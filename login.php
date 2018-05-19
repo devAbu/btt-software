@@ -97,7 +97,7 @@
                                 <a href="register.php" class="badge ml-3 text-warning" style="text-decoration:none;"><span style="font-size:13px;">No account?</span></a>
                             </div>
                             <div class="col-5">
-                                <a href="#" class="badge ml-5 text-warning" style="text-decoration:none;"><span style="font-size:13px;">Forgot password?</span></a>
+                                <a href="forgotPass.php" class="badge ml-5 text-warning" style="text-decoration:none;"><span style="font-size:13px;">Forgot password?</span></a>
                             </div>
                         </div>
                         <div class="card-body text-center">
