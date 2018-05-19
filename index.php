@@ -63,10 +63,10 @@
                 </li>
             </ul>
             <?php
-if (session_status() == PHP_SESSION_NONE) {
-    echo "login";
-} else {
+if (isset($_SESSION['email'])) {
     echo "logout";
+} else {
+    echo "login";
 }
 ?>
             <ul class="navbar-nav ml-auto">
