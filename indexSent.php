@@ -15,7 +15,7 @@ $emailSign = $_REQUEST['emailSign'];
 $passSign = $_REQUEST['passSign'];
 
 if ($_REQUEST['task'] == "register") {
-    $query = "INSERT INTO registacija (name, surname, email, password) VALUES ('$firstSign','$lastSign', '$emailSign', '$passSign')";
+    $query = "INSERT INTO register (name, surname, email, password) VALUES ('$firstSign','$lastSign', '$emailSign', '$passSign')";
 
     $response = @mysqli_query($dbc, $query);
     if ($response) {
