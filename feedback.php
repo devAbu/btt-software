@@ -375,12 +375,47 @@
         <h2 class="display-4 text-center text-info mb-5 mt-4">Be free to contact us, we are here to please you.</h2>
         <p class="text-center h2 text-primary mb-5">Tell us what you think!</p>
         <div class="col-9 offset-3">
-            <textarea cols="50" rows="10" class="form-control" style="max-width:550px;margin-left:50px;" placeholder="Please write your opinion..."></textarea>
+            <textarea cols="50" rows="10" class="form-control" style="max-width:550px;margin-left:50px;" placeholder="Please write your opinion..." id="feedback" name="feedback"></textarea>
         </div>
         <div class="col-lg-6 offset-5 ">
-            <input type="button" class="btn btn-lg btn-outline-success mt-3 ml-5 mb-2" value="SEND" />
+            <input type="button" id="feedbackButton" name="feedbackButton" class="btn btn-lg btn-outline-success mt-3 ml-5 mb-2" value="SEND" />
         </div>
+        <div class="alert mt-3" id="alertFeedback"></div>
     </section>
+
+    <script>
+        $('#alertFeedback').slideUp();
+        $('#feedbackButton').click(function(){
+            $('#alertFeedback').removeClass('alert-success').removeClass('alert-danger');
+            var feedback = $('#feedback').val();
+            if(feedback == "") {
+                $("#alertFeedback").addClass('alert-danger');
+                $("#alertFeedback").html("Please write your opinion!!!");
+                $("#alertFeedback").fadeIn(500).delay(1000).fadeOut(500);
+            }else {
+                $.ajax({
+                    url: "./feedbackSent.php?task=feedback&feedback="+feedback,
+                    success: function (data) {
+                        if(data.indexOf('sent') > -1) {
+                            $("#alertFeedback").addClass('alert-success');
+							$("#alertFeedback").html('Thanks for your feedback.');
+							$("#alertFeedback").slideDown(500).delay(1000).slideUp(500);
+                            $('#feedback').val("");
+                        }else {
+                            $("#alertFeedback").addClass('alert-danger');
+							$("#alertFeedback").html('There is some problem. Please try later');
+							$("#alertFeedback").slideDown(500).delay(1000).slideUp(500);
+                        }
+                    }, 
+                    error: function (data, err) {
+                        $("#alertFeedback").addClass('alert-danger');
+							$("#alertFeedback").html('Some problem occured. We are sorry.');
+							$("#alertFeedback").slideDown(500).delay(1000).slideUp(500);
+                    }
+                });
+            }
+        });
+    </script>
 
     <footer class="bg-secondary" style="margin-top:0px;">
         <div class="row no-gutters">
