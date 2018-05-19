@@ -30,8 +30,9 @@ if ($_REQUEST['task'] == "login") {
                         echo mysqli_error($dbc);
                     }
 
-                     session_start();
-                    $_SESSION['email'] == $emailLog; 
+                    session_start();
+                    $_SESSION['email'] == $emailLog;
+                    header.location('index')
                 } else {
                     echo ('pass');
                 }

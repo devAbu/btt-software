@@ -62,6 +62,13 @@
                         <i class="far fa-smile mr-2"></i>Feedback</a>
                 </li>
             </ul>
+            <?php
+if (session_status() == PHP_SESSION_NONE) {
+    echo "login";
+} else {
+    echo "logout";
+}
+?>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a href="#" data-toggle="modal" data-target="#SignModal" class="nav-link link">
