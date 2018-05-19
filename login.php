@@ -42,7 +42,7 @@
                 <li class="nav-item">
                     <a href="tourPlans.php" class="nav-link"><i class="fas fa-suitcase mr-2"></i>Tour plans</a>
                 </li>
-               
+
                 <li class="nav-item">
                     <a href="feedback.php" class="nav-link"><i class="far fa-smile mr-2"></i>Feedback</a>
                 </li>
@@ -113,15 +113,17 @@
 
             <script>
                     $('#alertLog').slideUp();
+                    //$('#alertLog').removeClass('alert-success').removeClass('alert-danger');
                     $('#logButton').click(function () {
+                        $("#alertLog").removeClass('alert-success').removeClass('alert-danger');
                         var emailLog = $('#emailLog').val();
                         var passLog = $('#passLog').val();
-            
+
                         function validateEmail($emailLog) {
                             var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
                             return emailReg.test($emailLog);
                         }
-            
+
                         if (emailLog == "") {
                             $("#alertLog").addClass('alert-danger');
                             $("#alertLog").html("Email field is required!!!");
@@ -162,7 +164,7 @@
                 })
             }
         });
-            
+
                     $('#eyeLog').click(function () {
                         /* var elementType = $('#passSign').prev().prop('pass'); */
                         var elementType = $('#passLog').attr('type');
