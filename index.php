@@ -18,19 +18,22 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 
 <body>
 
     <nav class="navbar bg-primary navbar-dark navbar-expand-md fixed-top" style="opacity:0.7; font-size:18px;">
-        <a href="index.html" class="navbar-brand">
+        <a href="index.php" class="navbar-brand">
             <img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" />
             <span class="h4">BTT</span>
         </a>
@@ -41,19 +44,20 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" id="navScrollspy">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link link active">
+                    <a href="index.php" class="nav-link link active">
                         <i class="fas fa-home mr-2"></i>Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="aboutUs.html" class="nav-link link">
+                    <a href="aboutUs.php" class="nav-link link">
                         <i class="fas fa-users mr-2"></i>About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="tourPlans.html" class="nav-link link">
+                    <a href="tourPlans.php" class="nav-link link">
                         <i class="fas fa-suitcase mr-2"></i>Tour plans</a>
                 </li>
+               
                 <li class="nav-item">
-                    <a href="feedback.html" class="nav-link link">
+                    <a href="feedback.php" class="nav-link link">
                         <i class="far fa-smile mr-2"></i>Feedback</a>
                 </li>
             </ul>
@@ -78,7 +82,7 @@
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitleReg">
+                    <h5 class="modal-title" id="modalTitleSign">
                         <img src="images/icon.png" class="img-fluid mr-5" width="60" height="60" alt="BTT">
                         <label class="h2 text-primary">Create an account</label>
                     </h5>
@@ -90,15 +94,18 @@
                 </div>
                 <div class="modal-body">
                     <div class="col-xs-12">
-                        <input type="text" placeholder="Fist name..." class="form-control" style="max-width:400px;" required="">
+                        <input type="text" placeholder="Fist name..." id="firstSign" name="firstSign" class="form-control" style="max-width:400px;"
+                            required="">
                         <br>
                     </div>
                     <div class="col-xs-12">
-                        <input type="text" placeholder="Last name..." class="form-control" style="max-width:400px;" required="">
+                        <input type="text" placeholder="Last name..." id="lastSign" name="lastSign" class="form-control" style="max-width:400px;"
+                            required="">
                         <br>
                     </div>
                     <div class="col-xs-12">
-                        <input type="email" placeholder="you@example.com" class="form-control" style="max-width:400px;" required="">
+                        <input type="email" placeholder="you@example.com" id="emailSign" name="emailSign" class="form-control" style="max-width:400px;"
+                            required="">
                         <br />
                     </div>
                     <table>
@@ -106,11 +113,11 @@
                             <td>
                                 <div>
                                     <input type="password" placeholder="*****" class="form-control" style="width:400px !important;margin-right:0px !important;"
-                                        required id="pass">
+                                        required id="passSign" name="passSign">
                                 </div>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-outline-warning" style="margin-left:-43px !important;">
+                                <button type="button" id="eye" name="eye" class="btn btn-outline-warning" style="margin-left:-43px !important;">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </td>
@@ -121,13 +128,15 @@
                         <input type="password" placeholder="*****" class="form-control" style="max-width:400px;" required="">
                     </div>-->
                     <div class="col-12 mb-3" style="margin-left:-10px !important;">
-                        <a href="login.html" class="text-success">Already has account?</a>
+                        <a href="login.php" class="text-success">Already has account?</a>
                     </div>
                     <div class="col-xs-12  offset-4">
-                        <button class="btn btn-success">Sign up for free
+                        <button class="btn btn-success" id="signButton" name="signButton">Sign up for free
                             <i class="fas fa-user-plus ml-2"></i>
                         </button>
+
                     </div>
+                    <div class="alert mt-3" id="alert"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -138,6 +147,79 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $('#alert').slideUp();
+        $('#signButton').click(function () {
+            $("#alert").removeClass('alert-success').removeClass('alert-danger');
+            var firstSign = $('#firstSign').val();
+            var lastSign = $('#lastSign').val();
+            var emailSign = $('#emailSign').val();
+            var passSign = $('#passSign').val();
+
+            function validateEmail($emailSign) {
+                var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                return emailReg.test($emailSign);
+            }
+
+            if (firstSign == "") {
+                $("#alert").addClass('alert-danger');
+                $("#alert").html("Your first name is required!!!");
+                $("#alert").slideDown(500).delay(1000).slideUp(500);
+            } else if (lastSign == "") {
+                $("#alert").addClass('alert-danger');
+                $("#alert").html("Your last name is required!!!");
+                $("#alert").fadeIn(500).delay(1000).fadeOut(500);
+            } else if (emailSign == "") {
+                $("#alert").addClass('alert-danger');
+                $("#alert").html("Email field is required!!!");
+                $("#alert").fadeIn(500).delay(1000).fadeOut(500);
+            } else if (!validateEmail(emailSign)) {
+                $("#alert").addClass('alert-danger');
+                $("#alert").html('Please enter validated email address.');
+                $("#alert").slideDown(500).delay(1000).slideUp(500);
+            } else if (passSign == "") {
+                $("#alert").addClass('alert-danger');
+                $("#alert").html("Password is required!!!");
+                $("#alert").fadeIn(500).delay(1000).fadeOut(500);
+            }else {
+                $.ajax({
+                    url: "./indexSent.php?task=register&firstSign="+firstSign+"&lastSign="+lastSign+"&emailSign="+emailSign+"&passSign="+passSign,
+                    success: function (data){
+                        if(data.indexOf('sent') > -1){
+                            $("#alert").addClass('alert-success');
+							$("#alert").html('Your account created successfully. Now you can login with your information');
+							$("#alert").slideDown(500).delay(2000).slideUp(500);
+                            $('#firstSign').val("");
+                            $('#lastSign').val("");
+                            $('#emailSign').val("");
+                            $('#passSign').val("");
+                        } else{
+                            $("#alert").addClass('alert-danger');
+							$("#alert").html('The email is already exists.');
+							$("#alert").slideDown(500).delay(1000).slideUp(500);
+                        }
+                    },
+                    error: function (data, err){
+                        $("#alert").addClass('alert-danger');
+                        $("#alert").html('Some problem occured. We are sorry.');
+                        $("#alert").slideDown(500).delay(1000).slideUp(500);
+                    }
+                })
+            }
+        });
+
+        $('#eye').click(function () {
+            /* var elementType = $('#passSign').prev().prop('pass'); */
+            var elementType = $('#passSign').attr('type');
+            console.log(elementType);
+            if (elementType == "text") {
+                $('#passSign').attr('type', 'password');
+            } else if (elementType == "password") {
+                $('#passSign').attr('type', 'text');
+            }
+        });
+    </script>
 
     <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
@@ -155,7 +237,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="col-12">
-                        <input type="email" placeholder="you@example.com" class="form-control" style="max-width:400px;" required="">
+                        <input type="email" placeholder="you@example.com" class="form-control" style="max-width:400px;" id="emailLog" name="emailLog"
+                            required>
                         <br>
                     </div>
                     <table>
@@ -163,11 +246,11 @@
                             <td>
                                 <div style="margin-left:15px;">
                                     <input type="password" placeholder="*****" class="form-control" style="max-width:400px !important;margin-right:270px !important;"
-                                        required id="pass">
+                                        required id="passLog" name="passLog">
                                 </div>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-outline-warning" style="margin-left:-92px !important;">
+                                <button type="button" id="eyeLog" name="eyeLog" class="btn btn-outline-warning" style="margin-left:-92px !important;">
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </td>
@@ -183,7 +266,7 @@
             </button>
         </div>-->
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-5 mr-4">
-                            <a href="register.html" class="badge ml-3 text-warning" style="text-decoration:none;">
+                            <a href="register.php" class="badge ml-3 text-warning" style="text-decoration:none;">
                                 <span style="font-size:13px;">No account?</span>
                             </a>
                         </div>
@@ -195,10 +278,11 @@
                         <br />
                     </div>
                     <div class="col-xs-12  offset-4 mt-3">
-                        <button class="btn btn-success">Login
+                        <button id="logButton" name="logButton" class="btn btn-success">Login
                             <i class="fas fa-sign-in-alt ml-2"></i>
                         </button>
                     </div>
+                    <div class="alert mt-3" id="alertLog"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">
@@ -209,6 +293,72 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $('#alertLog').slideUp();
+       
+        $('#logButton').click(function () {
+            $('#alertLog').removeClass('alert-success').removeClass('alert-danger');
+            var emailLog = $('#emailLog').val();
+            var passLog = $('#passLog').val();
+
+            function validateEmail($emailLog) {
+                var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+                return emailReg.test($emailLog);
+            }
+
+            if (emailLog == "") {
+                $("#alertLog").addClass('alert-danger');
+                $("#alertLog").html("Email field is required!!!");
+                $("#alertLog").fadeIn(500).delay(1000).fadeOut(500);
+            } else if (!validateEmail(emailLog)) {
+                $("#alertLog").addClass('alert-danger');
+                $("#alertLog").html('Please enter validated email address.');
+                $("#alertLog").slideDown(500).delay(1000).slideUp(500);
+            } else if (passLog == "") {
+                $("#alertLog").addClass('alert-danger');
+                $("#alertLog").html("Please enter your password!!!");
+                $("#alertLog").fadeIn(500).delay(1000).fadeOut(500);
+            } else {
+                $.ajax({
+                    url: "./indexSentLog.php?task=login&emailLog="+emailLog+"&passLog="+passLog,
+                    success: function (data){
+                        if(data.indexOf('sent') > -1){
+                            $("#alertLog").addClass('alert-success');
+							$("#alertLog").html('Logged in successfully');
+							$("#alertLog").slideDown(500).delay(1000).slideUp(500);
+                            $('#emailLog').val("");
+                            $('#passLog').val("");
+                        } else if(data.indexOf('pass') > -1){
+                            $("#alertLog").addClass('alert-danger');
+							$("#alertLog").html('Password is incorrect');
+							$("#alertLog").slideDown(500).delay(1000).slideUp(500);
+                        } else {
+                            $("#alertLog").addClass('alert-danger');
+							$("#alertLog").html('Email is incorrect');
+							$("#alertLog").slideDown(500).delay(1000).slideUp(500);
+                        }
+                    },
+                    error: function (data, err){
+                        $("#alertLog").addClass('alert-danger');
+                        $("#alertLog").html('Some problem occured. We are sorry.');
+                        $("#alertLog").slideDown(500).delay(1000).slideUp(500);
+                    }
+                })
+            }
+        });
+
+        $('#eyeLog').click(function () {
+            /* var elementType = $('#passSign').prev().prop('pass'); */
+            var elementType = $('#passLog').attr('type');
+            console.log(elementType);
+            if (elementType == "text") {
+                $('#passLog').attr('type', 'password');
+            } else if (elementType == "password") {
+                $('#passLog').attr('type', 'text');
+            }
+        });
+    </script>
 
     <section id="jumbotron" class="jumbotron jumbotron-fluid text-white d-flex justify-content-center align-items-center">
         <div class="container text-center">
@@ -279,11 +429,11 @@
         <h2 class="display-3 text-center text-info my-4">The best travel tour offers</h2>
         <div class="card-group mt-3">
             <div class="card ml-2" style="border-radius:2% !important;" id="prva">
-                <a href="tourPlans.html">
+                <a href="tourPlans.php">
                     <img class="card-img-top img-fluid index " src="images/skijanje.jpg" style="border-radius:2% !important;" alt="Skijanje">
                 </a>
                 <div class="card-body">
-                    <a href="tourPlans.html" class="text-info">
+                    <a href="tourPlans.php" class="text-info">
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This
                             content is a little bit longer.</p>
                     </a>
@@ -297,12 +447,12 @@
                 </div>
             </div>
             <div class="card ml-2" style=" border: 1px solid rgb(218, 218, 218) !important; border-radius:2% !important;" id="druga">
-                <a href="tourPlans.html">
+                <a href="tourPlans.php">
                     <img class="card-img-top img-fluid index " style="height:250px !important; border-radius:2% !important;" src="images/jajce.jpg"
                         alt="Jajce">
                 </a>
                 <div class="card-body">
-                    <a href="tourPlans.html" class="text-info">
+                    <a href="tourPlans.php" class="text-info">
                         <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
                     </a>
                     <h5 class="card-title text-primary text-right mr-4 mt-5">From 500
@@ -315,12 +465,12 @@
                 </div>
             </div>
             <div class="card ml-2 mr-2" style=" border: 1px solid rgb(218, 218, 218) !important; border-radius:2% !important;" id="treca">
-                <a href="tourPlans.html">
+                <a href="tourPlans.php">
                     <img class="card-img-top img-fluid index " src="images/neum.jpg" style="height:250px !important; border-radius:2% !important;"
                         alt="Neum">
                 </a>
                 <div class="card-body">
-                    <a href="tourPlans.html" class="text-info">
+                    <a href="tourPlans.php" class="text-info">
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
                     </a>
                     <h5 class="card-title text-primary text-right mr-4 mt-5">From 899
@@ -349,41 +499,41 @@
                 </ol>
                 <div class="carousel-inner " role="listbox">
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="bestPlaces.html">
+                        <a href="bestPlaces.php">
                             <img src="images/konjic.jpg" alt="slide1" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="bestPlaces.html" style="text-decoration:none !important;">
+                            <a href="bestPlaces.php" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Konjic</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item active" style="border-radius:5%;">
-                        <a href="bestPlaces.html">
+                        <a href="bestPlaces.php">
                             <img src="images/mostar.jpg" alt="slide2" style="border-radius:5%;" class="d-block img-fluid index2" />
                         </a>
                         <div class="carousel-caption">
-                            <a href="bestPlaces.html" style="text-decoration:none !important;">
+                            <a href="bestPlaces.php" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Mostar</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="bestPlaces.html">
+                        <a href="bestPlaces.php">
                             <img src="images/bjelasnica.jpg" alt="slide3" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="bestPlaces.html" style="text-decoration:none !important;">
+                            <a href="bestPlaces.php" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Bjelasnica</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="bestPlaces.html">
+                        <a href="bestPlaces.php">
                             <img src="images/sebilj.jpg" alt="slide4" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="bestPlaces.html" style="text-decoration:none !important;">
+                            <a href="bestPlaces.php" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Sarajevo</h3>
                             </a>
                         </div>
@@ -403,41 +553,41 @@
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="hotel.html">
+                        <a href="hotel.php">
                             <img src="images/krone.jpg" alt="slide1" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="hotel.html" style="text-decoration:none !important;">
+                            <a href="hotel.php" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Krone Hotel</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="hotel.html">
+                        <a href="hotel.php">
                             <img src="images/scc.jpg" alt="slide2" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="hotel.html" style="text-decoration:none !important;">
+                            <a href="hotel.php" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Al Shidi - SCC Hotel</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item active" style="border-radius:5%;">
-                        <a href="hotel.html">
+                        <a href="hotel.php">
                             <img src="images/malak.jpg" alt="slide3" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="hotel.html" style="text-decoration:none !important;">
+                            <a href="hotel.php" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Malak Hotel</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="hotel.html">
+                        <a href="hotel.php">
                             <img src="images/mariot.jpg" alt="slide4" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="hotel.html" style="text-decoration:none !important;">
+                            <a href="hotel.php" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Marriott Hotel</h3>
                             </a>
                         </div>
@@ -493,7 +643,7 @@
                 <label class="text-uppercase text-center text-warning h1" style="opacity:0.7;">Bosnian Tourist Travel</label>
                 <p class="ml-3 text-dark mt-4" style="max-width:400px;">Home to medieval villages, rivers and lakes, plus the craggy Dinaric Alps, and many more, explore our Country.</p>
                 <p class="ml-3 text-dark mt-3">You can see BTT offers by visitting this
-                    <a href="tourPlans.html" class="text-warning" style="text-decoration:none;">LINK.</a>
+                    <a href="tourPlans.php" class="text-warning" style="text-decoration:none;">LINK.</a>
                 </p>
             </div>
             <div class="col-5 mt-5 offset-1">
