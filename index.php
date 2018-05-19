@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿<? session_start();?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -55,7 +56,7 @@
                     <a href="tourPlans.php" class="nav-link link">
                         <i class="fas fa-suitcase mr-2"></i>Tour plans</a>
                 </li>
-               
+
                 <li class="nav-item">
                     <a href="feedback.php" class="nav-link link">
                         <i class="far fa-smile mr-2"></i>Feedback</a>
@@ -296,7 +297,7 @@
 
     <script>
         $('#alertLog').slideUp();
-       
+
         $('#logButton').click(function () {
             $('#alertLog').removeClass('alert-success').removeClass('alert-danger');
             var emailLog = $('#emailLog').val();
