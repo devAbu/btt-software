@@ -32,24 +32,24 @@
 <body>
 
     <nav class="navbar bg-warning navbar-light  navbar-expand-md fixed-top" style="opacity:0.7; font-size:18px;">
-        <a href="index.php" class="navbar-brand"><img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" /><span class="h4">BTT</span></a>
+        <a href="index" class="navbar-brand"><img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" /><span class="h4">BTT</span></a>
         <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expended="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" id="navScrollspy">
                 <li class="nav-item">
-                    <a href="index.php" class="nav-link"><i class="fas fa-home mr-2"></i>Home</a>
+                    <a href="index" class="nav-link"><i class="fas fa-home mr-2"></i>Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="aboutUs.php" class="nav-link"><i class="fas fa-users mr-2"></i>About Us</a>
+                    <a href="aboutUs" class="nav-link"><i class="fas fa-users mr-2"></i>About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="tourPlans.php" class="nav-link"><i class="fas fa-suitcase mr-2"></i>Tour plans</a>
+                    <a href="tourPlans" class="nav-link"><i class="fas fa-suitcase mr-2"></i>Tour plans</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="feedback.php" class="nav-link"><i class="far fa-smile mr-2"></i>Feedback</a>
+                    <a href="feedback" class="nav-link"><i class="far fa-smile mr-2"></i>Feedback</a>
                 </li>
             </ul>
         </div>
@@ -99,10 +99,10 @@
                                 </div>
                             -->
                             <div class="col-7">
-                                <a href="register.php" class="badge ml-3 text-warning" style="text-decoration:none;"><span style="font-size:13px;">No account?</span></a>
+                                <a href="register" class="badge ml-3 text-warning" style="text-decoration:none;"><span style="font-size:13px;">No account?</span></a>
                             </div>
                             <div class="col-5">
-                                <a href="forgotPass.php" class="badge ml-5 text-warning" style="text-decoration:none;"><span style="font-size:13px;">Forgot password?</span></a>
+                                <a href="forgotPass" class="badge ml-5 text-warning" style="text-decoration:none;"><span style="font-size:13px;">Forgot password?</span></a>
                             </div>
                         </div>
                         <div class="card-body text-center">
@@ -143,7 +143,7 @@
                         $("#alertLog").fadeIn(500).delay(1000).fadeOut(500);
                     }else {
                         $.ajax({
-                            url: "./indexSentLog.php?task=login&emailLog="+emailLog+"&passLog="+passLog,
+                            url: "./indexSentLog?task=login&emailLog="+emailLog+"&passLog="+passLog,
                             success: function (data){
                                 if(data.indexOf('sent') > -1){
                                     $("#alertLog").addClass('alert-success');
@@ -153,7 +153,7 @@
                                     $('#passLog').val("");
                                     var delay = 1500;
                                     setTimeout(function(){
-                                        window.location = "index.php"; }, delay);
+                                        window.location = "index"; }, delay);
 
 
                                 } else if(data.indexOf('pass') > -1){

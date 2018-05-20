@@ -36,7 +36,7 @@ session_start();
 <body>
 
     <nav class="navbar bg-primary navbar-dark navbar-expand-md fixed-top" style="opacity:0.7; font-size:18px;">
-        <a href="index.php" class="navbar-brand">
+        <a href="index" class="navbar-brand">
             <img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" />
             <span class="h4">BTT</span>
         </a>
@@ -47,27 +47,27 @@ session_start();
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" id="navScrollspy">
                 <li class="nav-item">
-                    <a href="index.php" class="nav-link link active">
+                    <a href="index" class="nav-link link active">
                         <i class="fas fa-home mr-2"></i>Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="aboutUs.php" class="nav-link link">
+                    <a href="aboutUs" class="nav-link link">
                         <i class="fas fa-users mr-2"></i>About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="tourPlans.php" class="nav-link link">
+                    <a href="tourPlans" class="nav-link link">
                         <i class="fas fa-suitcase mr-2"></i>Tour plans</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="feedback.php" class="nav-link link">
+                    <a href="feedback" class="nav-link link">
                         <i class="far fa-smile mr-2"></i>Feedback</a>
                 </li>
             </ul>
             <?php
 if (isset($_SESSION['email'])) {
     $session = $_SESSION['email'];
-    echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='logout.php'  class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Logout</span></a></li></ul><input type='text'  value='$session' hidden id='session' name='session'>";
+    echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='logout'  class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Logout</span></a></li></ul><input type='text'  value='$session' hidden id='session' name='session'>";
 } else {
     echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='#' data-toggle='modal' data-target='#SignModal' class='nav-link link'><span class='navLinks'><i class='fa fa-user-plus mr-2'></i>Register</span></a></li><li class='nav-item'><a href='#' data-toggle='modal' data-target='#LoginModal' class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Login</span></a></li></ul>";
 }
@@ -125,7 +125,7 @@ if (isset($_SESSION['email'])) {
                         <input type="password" placeholder="*****" class="form-control" style="max-width:400px;" required="">
                     </div>-->
                     <div class="col-12 mb-3" style="margin-left:-10px !important;">
-                        <a href="login.php" class="text-success">Already has account?</a>
+                        <a href="login" class="text-success">Already has account?</a>
                     </div>
                     <div class="col-xs-12  offset-4">
                         <button class="btn btn-success" id="signButton" name="signButton">Sign up for free
@@ -181,7 +181,7 @@ if (isset($_SESSION['email'])) {
                 $("#alert").fadeIn(500).delay(1000).fadeOut(500);
             }else {
                 $.ajax({
-                    url: "./indexSent.php?task=register&firstSign="+firstSign+"&lastSign="+lastSign+"&emailSign="+emailSign+"&passSign="+passSign,
+                    url: "./indexSent?task=register&firstSign="+firstSign+"&lastSign="+lastSign+"&emailSign="+emailSign+"&passSign="+passSign,
                     success: function (data){
                         if(data.indexOf('sent') > -1){
                             $("#alert").addClass('alert-success');
@@ -263,7 +263,7 @@ if (isset($_SESSION['email'])) {
             </button>
         </div>-->
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-5 mr-4">
-                            <a href="register.php" class="badge ml-3 text-warning" style="text-decoration:none;">
+                            <a href="register" class="badge ml-3 text-warning" style="text-decoration:none;">
                                 <span style="font-size:13px;">No account?</span>
                             </a>
                         </div>
@@ -318,7 +318,7 @@ if (isset($_SESSION['email'])) {
                 $("#alertLog").fadeIn(500).delay(1000).fadeOut(500);
             } else {
                 $.ajax({
-                    url: "./indexSentLog.php?task=login&emailLog="+emailLog+"&passLog="+passLog,
+                    url: "./indexSentLog?task=login&emailLog="+emailLog+"&passLog="+passLog,
                     success: function (data){
                         if(data.indexOf('sent') > -1){
                             $("#alertLog").addClass('alert-success');
@@ -328,7 +328,7 @@ if (isset($_SESSION['email'])) {
                             $('#passLog').val("");
                             var delay = 1500;
                             setTimeout(function(){
-                                window.location = "index.php"; }, delay);
+                                window.location = "index"; }, delay);
                         } else if(data.indexOf('pass') > -1){
                             $("#alertLog").addClass('alert-danger');
 							$("#alertLog").html('Password is incorrect');
@@ -381,7 +381,7 @@ if (isset($_SESSION['email'])) {
 if (isset($_SESSION['email'])) {
     echo '<div class="col-lg-6 offset-5"><input type="button" id="feedbackButton" name="feedbackButton" class="btn btn-lg btn-outline-success mt-3 ml-5 mb-2" value="SEND" /></div>';
 } else {
-    echo '<a href="login.php"><div class="col-lg-6 offset-5"><input type="button" class="btn btn-lg btn-outline-warning mt-3 ml-5 mb-2" value="LOGIN" /></div></a>';
+    echo '<a href="login"><div class="col-lg-6 offset-5"><input type="button" class="btn btn-lg btn-outline-warning mt-3 ml-5 mb-2" value="LOGIN" /></div></a>';
 }
 ?>
         <!-- <div class="col-lg-6 offset-5 ">
@@ -402,7 +402,7 @@ if (isset($_SESSION['email'])) {
                 $("#alertFeedback").fadeIn(500).delay(1000).fadeOut(500);
             }else {
                 $.ajax({
-                    url: "./feedbackSent.php?task=feedback&feedback="+feedback+"&session="+session,
+                    url: "./feedbackSent?task=feedback&feedback="+feedback+"&session="+session,
                     success: function (data) {
                         if(data.indexOf('sent') > -1) {
                             $("#alertFeedback").addClass('alert-success');
@@ -431,7 +431,7 @@ if (isset($_SESSION['email'])) {
                 <img src="images/icon.png" alt="logo" class="img-fluid ml-2" width="100" height="100" />
                 <label class="text-uppercase text-center text-warning h1" style="opacity:0.7;">Bosnian Tourist Travel</label>
                 <p class="ml-3 text-dark mt-4" style="max-width:400px;">Home to medieval villages, rivers and lakes, plus the craggy Dinaric Alps, and many more, explore our Country.</p>
-                <p class="ml-3 text-dark mt-3">You can see BTT offers by visitting this <a href="tourPlans.html" class="text-warning" style="text-decoration:none;">LINK.</a></p>
+                <p class="ml-3 text-dark mt-3">You can see BTT offers by visitting this <a href="tourPlans" class="text-warning" style="text-decoration:none;">LINK.</a></p>
             </div>
             <div class="col-5 mt-5 offset-1">
                 <h1 class="text-warning mb-5 text-uppercase" style="margin-top:13px !important; opacity:0.7;">Contact info</h1>

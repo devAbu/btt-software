@@ -28,7 +28,7 @@ if ($_REQUEST['task'] == "login") {
                         session_start();
                         $_SESSION["email"] = $row["email"];
 
-                        //header("refresh: 2", 'url= index.php');
+                        //header("refresh: 2", 'url= index');
                     } else {
                         echo mysqli_error($dbc);
                     }

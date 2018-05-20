@@ -33,7 +33,7 @@
 <body>
 
     <nav class="navbar bg-primary navbar-dark navbar-expand-md fixed-top" style="opacity:0.7; font-size:18px;">
-        <a href="index.php" class="navbar-brand">
+        <a href="index" class="navbar-brand">
             <img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" />
             <span class="h4">BTT</span>
         </a>
@@ -44,20 +44,20 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" id="navScrollspy">
                 <li class="nav-item">
-                    <a href="index.php" class="nav-link link active">
+                    <a href="index" class="nav-link link active">
                         <i class="fas fa-home mr-2"></i>Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="aboutUs.php" class="nav-link link">
+                    <a href="aboutUs" class="nav-link link">
                         <i class="fas fa-users mr-2"></i>About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="tourPlans.php" class="nav-link link">
+                    <a href="tourPlans" class="nav-link link">
                         <i class="fas fa-suitcase mr-2"></i>Tour plans</a>
                 </li>
                
                 <li class="nav-item">
-                    <a href="feedback.php" class="nav-link link">
+                    <a href="feedback" class="nav-link link">
                         <i class="far fa-smile mr-2"></i>Feedback</a>
                 </li>
             </ul>
@@ -128,7 +128,7 @@
                         <input type="password" placeholder="*****" class="form-control" style="max-width:400px;" required="">
                     </div>-->
                     <div class="col-12 mb-3" style="margin-left:-10px !important;">
-                        <a href="login.php" class="text-success">Already has account?</a>
+                        <a href="login" class="text-success">Already has account?</a>
                     </div>
                     <div class="col-xs-12  offset-4">
                         <button class="btn btn-success" id="signButton" name="signButton">Sign up for free
@@ -184,7 +184,7 @@
                 $("#alert").fadeIn(500).delay(1000).fadeOut(500);
             }else {
                 $.ajax({
-                    url: "./indexSent.php?task=register&firstSign="+firstSign+"&lastSign="+lastSign+"&emailSign="+emailSign+"&passSign="+passSign,
+                    url: "./indexSent?task=register&firstSign="+firstSign+"&lastSign="+lastSign+"&emailSign="+emailSign+"&passSign="+passSign,
                     success: function (data){
                         if(data.indexOf('sent') > -1){
                             $("#alert").addClass('alert-success');
@@ -266,7 +266,7 @@
             </button>
         </div>-->
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-5 mr-4">
-                            <a href="register.php" class="badge ml-3 text-warning" style="text-decoration:none;">
+                            <a href="register" class="badge ml-3 text-warning" style="text-decoration:none;">
                                 <span style="font-size:13px;">No account?</span>
                             </a>
                         </div>
@@ -321,7 +321,7 @@
                 $("#alertLog").fadeIn(500).delay(1000).fadeOut(500);
             } else {
                 $.ajax({
-                    url: "./indexSentLog.php?task=login&emailLog="+emailLog+"&passLog="+passLog,
+                    url: "./indexSentLog?task=login&emailLog="+emailLog+"&passLog="+passLog,
                     success: function (data){
                         if(data.indexOf('sent') > -1){
                             $("#alertLog").addClass('alert-success');

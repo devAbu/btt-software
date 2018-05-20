@@ -40,7 +40,7 @@
                 //document.getElementById("test").innerHTML = object.title;
             }
         };
-        xmlhttp.open("GET", "readTourData.php", true);
+        xmlhttp.open("GET", "readTourData", true);
         xmlhttp.send();
     </script>
 

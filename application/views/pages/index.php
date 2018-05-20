@@ -38,7 +38,7 @@ session_start();
 
 
     <nav class="navbar bg-primary navbar-dark navbar-expand-md fixed-top" style="opacity:0.7; font-size:18px;">
-        <a href="index.php" class="navbar-brand">
+        <a href="index" class="navbar-brand">
             <img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" />
             <span class="h4">BTT</span>
         </a>
@@ -49,20 +49,20 @@ session_start();
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" id="navScrollspy">
                 <li class="nav-item">
-                    <a href="index.php" class="nav-link link active">
+                    <a href="index" class="nav-link link active">
                         <i class="fas fa-home mr-2"></i>Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="aboutUs.php" class="nav-link link">
+                    <a href="aboutUs" class="nav-link link">
                         <i class="fas fa-users mr-2"></i>About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a href="tourPlans.php" class="nav-link link">
+                    <a href="tourPlans" class="nav-link link">
                         <i class="fas fa-suitcase mr-2"></i>Tour plans</a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="feedback.php" class="nav-link link">
+                    <a href="feedback" class="nav-link link">
                         <i class="far fa-smile mr-2"></i>Feedback</a>
                 </li>
             </ul>
@@ -77,7 +77,7 @@ session_start();
     }
 </script> -->            <?php
 if (isset($_SESSION['email'])) {
-    echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='logout.php'  class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Logout</span></a></li></ul>";
+    echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='logout'  class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Logout</span></a></li></ul>";
 } else {
     echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='#' data-toggle='modal' data-target='#SignModal' class='nav-link link'><span class='navLinks'><i class='fa fa-user-plus mr-2'></i>Register</span></a></li><li class='nav-item'><a href='#' data-toggle='modal' data-target='#LoginModal' class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Login</span></a></li></ul>";
 }
@@ -149,7 +149,7 @@ if (isset($_SESSION['email'])) {
                         <input type="password" placeholder="*****" class="form-control" style="max-width:400px;" required="">
                     </div>-->
                     <div class="col-12 mb-3" style="margin-left:-10px !important;">
-                        <a href="login.php" class="text-success">Already has account?</a>
+                        <a href="login" class="text-success">Already has account?</a>
                     </div>
                     <div class="col-xs-12  offset-4">
                         <button class="btn btn-success" id="signButton" name="signButton">Sign up for free
@@ -205,7 +205,7 @@ if (isset($_SESSION['email'])) {
                 $("#alert").fadeIn(500).delay(1000).fadeOut(500);
             }else {
                 $.ajax({
-                    url: "./indexSent.php?task=register&firstSign="+firstSign+"&lastSign="+lastSign+"&emailSign="+emailSign+"&passSign="+passSign,
+                    url: "./indexSent?task=register&firstSign="+firstSign+"&lastSign="+lastSign+"&emailSign="+emailSign+"&passSign="+passSign,
                     success: function (data){
                         if(data.indexOf('sent') > -1){
                             $("#alert").addClass('alert-success');
@@ -287,7 +287,7 @@ if (isset($_SESSION['email'])) {
             </button>
         </div>-->
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-5 mr-4">
-                            <a href="register.php" class="badge ml-3 text-warning" style="text-decoration:none;">
+                            <a href="register" class="badge ml-3 text-warning" style="text-decoration:none;">
                                 <span style="font-size:13px;">No account?</span>
                             </a>
                         </div>
@@ -342,7 +342,7 @@ if (isset($_SESSION['email'])) {
                 $("#alertLog").fadeIn(500).delay(1000).fadeOut(500);
             } else {
                 $.ajax({
-                    url: "./indexSentLog.php?task=login&emailLog="+emailLog+"&passLog="+passLog,
+                    url: "./indexSentLog?task=login&emailLog="+emailLog+"&passLog="+passLog,
                     success: function (data){
                         if(data.indexOf('sent') > -1){
                             $("#alertLog").addClass('alert-success');
@@ -352,13 +352,13 @@ if (isset($_SESSION['email'])) {
                             $('#passLog').val("");
                             var delay = 1500;
                             setTimeout(function(){
-                                window.location = "index.php"; }, delay);
+                                window.location = "index"; }, delay);
                         } else if(data.indexOf('pass') > -1){
                             $("#alertLog").addClass('alert-danger');
 							$("#alertLog").html('Password is incorrect');
 							$("#alertLog").slideDown(500).delay(1000).slideUp(500);
                             /* $.session.set("email", emailSign);
-                            location.replace("index.php")l */
+                            location.replace("index")l */
                         } else {
                             $("#alertLog").addClass('alert-danger');
 							$("#alertLog").html('Email is incorrect');
@@ -455,11 +455,11 @@ if (isset($_SESSION['email'])) {
         <h2 class="display-3 text-center text-info my-4">The best travel tour offers</h2>
         <div class="card-group mt-3">
             <div class="card ml-2" style="border-radius:2% !important;" id="prva">
-                <a href="tourPlans.php">
+                <a href="tourPlans">
                     <img class="card-img-top img-fluid index " src="images/skijanje.jpg" style="border-radius:2% !important;" alt="Skijanje">
                 </a>
                 <div class="card-body">
-                    <a href="tourPlans.php" class="text-info">
+                    <a href="tourPlans" class="text-info">
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This
                             content is a little bit longer.</p>
                     </a>
@@ -473,12 +473,12 @@ if (isset($_SESSION['email'])) {
                 </div>
             </div>
             <div class="card ml-2" style=" border: 1px solid rgb(218, 218, 218) !important; border-radius:2% !important;" id="druga">
-                <a href="tourPlans.php">
+                <a href="tourPlans">
                     <img class="card-img-top img-fluid index " style="height:250px !important; border-radius:2% !important;" src="images/jajce.jpg"
                         alt="Jajce">
                 </a>
                 <div class="card-body">
-                    <a href="tourPlans.php" class="text-info">
+                    <a href="tourPlans" class="text-info">
                         <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
                     </a>
                     <h5 class="card-title text-primary text-right mr-4 mt-5">From 500
@@ -491,12 +491,12 @@ if (isset($_SESSION['email'])) {
                 </div>
             </div>
             <div class="card ml-2 mr-2" style=" border: 1px solid rgb(218, 218, 218) !important; border-radius:2% !important;" id="treca">
-                <a href="tourPlans.php">
+                <a href="tourPlans">
                     <img class="card-img-top img-fluid index " src="images/neum.jpg" style="height:250px !important; border-radius:2% !important;"
                         alt="Neum">
                 </a>
                 <div class="card-body">
-                    <a href="tourPlans.php" class="text-info">
+                    <a href="tourPlans" class="text-info">
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
                     </a>
                     <h5 class="card-title text-primary text-right mr-4 mt-5">From 899
@@ -525,41 +525,41 @@ if (isset($_SESSION['email'])) {
                 </ol>
                 <div class="carousel-inner " role="listbox">
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="bestPlaces.php">
+                        <a href="bestPlaces">
                             <img src="images/konjic.jpg" alt="slide1" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="bestPlaces.php" style="text-decoration:none !important;">
+                            <a href="bestPlaces" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Konjic</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item active" style="border-radius:5%;">
-                        <a href="bestPlaces.php">
+                        <a href="bestPlaces">
                             <img src="images/mostar.jpg" alt="slide2" style="border-radius:5%;" class="d-block img-fluid index2" />
                         </a>
                         <div class="carousel-caption">
-                            <a href="bestPlaces.php" style="text-decoration:none !important;">
+                            <a href="bestPlaces" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Mostar</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="bestPlaces.php">
+                        <a href="bestPlaces">
                             <img src="images/bjelasnica.jpg" alt="slide3" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="bestPlaces.php" style="text-decoration:none !important;">
+                            <a href="bestPlaces" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Bjelasnica</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="bestPlaces.php">
+                        <a href="bestPlaces">
                             <img src="images/sebilj.jpg" alt="slide4" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="bestPlaces.php" style="text-decoration:none !important;">
+                            <a href="bestPlaces" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Sarajevo</h3>
                             </a>
                         </div>
@@ -579,41 +579,41 @@ if (isset($_SESSION['email'])) {
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="hotel.php">
+                        <a href="hotel">
                             <img src="images/krone.jpg" alt="slide1" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="hotel.php" style="text-decoration:none !important;">
+                            <a href="hotel" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Krone Hotel</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="hotel.php">
+                        <a href="hotel">
                             <img src="images/scc.jpg" alt="slide2" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="hotel.php" style="text-decoration:none !important;">
+                            <a href="hotel" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Al Shidi - SCC Hotel</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item active" style="border-radius:5%;">
-                        <a href="hotel.php">
+                        <a href="hotel">
                             <img src="images/malak.jpg" alt="slide3" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="hotel.php" style="text-decoration:none !important;">
+                            <a href="hotel" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Malak Hotel</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="hotel.php">
+                        <a href="hotel">
                             <img src="images/mariot.jpg" alt="slide4" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="hotel.php" style="text-decoration:none !important;">
+                            <a href="hotel" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Marriott Hotel</h3>
                             </a>
                         </div>
@@ -669,7 +669,7 @@ if (isset($_SESSION['email'])) {
                 <label class="text-uppercase text-center text-warning h1" style="opacity:0.7;">Bosnian Tourist Travel</label>
                 <p class="ml-3 text-dark mt-4" style="max-width:400px;">Home to medieval villages, rivers and lakes, plus the craggy Dinaric Alps, and many more, explore our Country.</p>
                 <p class="ml-3 text-dark mt-3">You can see BTT offers by visitting this
-                    <a href="tourPlans.php" class="text-warning" style="text-decoration:none;">LINK.</a>
+                    <a href="tourPlans" class="text-warning" style="text-decoration:none;">LINK.</a>
                 </p>
             </div>
             <div class="col-5 mt-5 offset-1">
