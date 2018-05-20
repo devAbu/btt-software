@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,26 +58,19 @@
                     <a href="tourPlans.php" class="nav-link link">
                         <i class="fas fa-suitcase mr-2"></i>Tour plans</a>
                 </li>
-               
+
                 <li class="nav-item">
                     <a href="feedback.php" class="nav-link link">
                         <i class="far fa-smile mr-2"></i>Feedback</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href="#" data-toggle="modal" data-target="#SignModal" class="nav-link link">
-                        <span class="navLinks">
-                            <i class="fa fa-user-plus mr-2"></i>Register</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" data-toggle="modal" data-target="#LoginModal" class="nav-link link">
-                        <span class="navLinks">
-                            <i class="fas fa-sign-in-alt mr-2"></i>Login</span>
-                    </a>
-                </li>
-            </ul>
+            <?php
+if (isset($_SESSION['email'])) {
+    echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='logout.php'  class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Logout</span></a></li></ul>";
+} else {
+    echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='#' data-toggle='modal' data-target='#SignModal' class='nav-link link'><span class='navLinks'><i class='fa fa-user-plus mr-2'></i>Register</span></a></li><li class='nav-item'><a href='#' data-toggle='modal' data-target='#LoginModal' class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Login</span></a></li></ul>";
+}
+?>
         </div>
     </nav>
 
@@ -296,7 +292,7 @@
 
     <script>
         $('#alertLog').slideUp();
-       
+
         $('#logButton').click(function () {
             $('#alertLog').removeClass('alert-success').removeClass('alert-danger');
             var emailLog = $('#emailLog').val();
@@ -329,6 +325,9 @@
 							$("#alertLog").slideDown(500).delay(1000).slideUp(500);
                             $('#emailLog').val("");
                             $('#passLog').val("");
+                            var delay = 1500;
+                            setTimeout(function(){
+                                window.location = "index.php"; }, delay);
                         } else if(data.indexOf('pass') > -1){
                             $("#alertLog").addClass('alert-danger');
 							$("#alertLog").html('Password is incorrect');
@@ -377,9 +376,16 @@
         <div class="col-9 offset-3">
             <textarea cols="50" rows="10" class="form-control" style="max-width:550px;margin-left:50px;" placeholder="Please write your opinion..." id="feedback" name="feedback"></textarea>
         </div>
-        <div class="col-lg-6 offset-5 ">
+        <?php
+if (isset($_SESSION['email'])) {
+    echo '<div class="col-lg-6 offset-5"><input type="button" id="feedbackButton" name="feedbackButton" class="btn btn-lg btn-outline-success mt-3 ml-5 mb-2" value="SEND" /></div>';
+} else {
+    echo '<a href="login.php"><div class="col-lg-6 offset-5"><input type="button" class="btn btn-lg btn-outline-warning mt-3 ml-5 mb-2" value="LOGIN" /></div></a>';
+}
+?>
+        <!-- <div class="col-lg-6 offset-5 ">
             <input type="button" id="feedbackButton" name="feedbackButton" class="btn btn-lg btn-outline-success mt-3 ml-5 mb-2" value="SEND" />
-        </div>
+        </div> -->
         <div class="alert mt-3" id="alertFeedback"></div>
     </section>
 
@@ -406,7 +412,7 @@
 							$("#alertFeedback").html('There is some problem. Please try later');
 							$("#alertFeedback").slideDown(500).delay(1000).slideUp(500);
                         }
-                    }, 
+                    },
                     error: function (data, err) {
                         $("#alertFeedback").addClass('alert-danger');
 							$("#alertFeedback").html('Some problem occured. We are sorry.');

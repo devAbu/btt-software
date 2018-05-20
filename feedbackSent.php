@@ -9,10 +9,8 @@ $dbc = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die('could not
 
 mysqli_set_charset($dbc, "utf8");
 
-
-
 $feedback = $_REQUEST['feedback'];
-$name = "abu";
+$name = $_SESSION['email'];
 
 if ($_REQUEST['task'] == "feedback") {
     $query = "INSERT INTO feedback (`name`, `content`) VALUES ('$name','$feedback')";
@@ -24,5 +22,3 @@ if ($_REQUEST['task'] == "feedback") {
         echo mysqli_error($dbc);
     }
 }
-
-?>

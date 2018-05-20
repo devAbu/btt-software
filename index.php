@@ -1,4 +1,6 @@
-﻿<? session_start();?>
+﻿<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +35,8 @@
 
 <body>
 
+
+
     <nav class="navbar bg-primary navbar-dark navbar-expand-md fixed-top" style="opacity:0.7; font-size:18px;">
         <a href="index.php" class="navbar-brand">
             <img src="images/icon.png" alt="logo" class="img-fluid mr-3" width="45" height="45" />
@@ -62,14 +66,23 @@
                         <i class="far fa-smile mr-2"></i>Feedback</a>
                 </li>
             </ul>
-            <?php
+
+
+<!-- <script>
+    $session = $.session.get(‘email’);
+    if($session != ""){
+       console.log("full");
+    }else {
+        console.log("empty");
+    }
+</script> -->            <?php
 if (isset($_SESSION['email'])) {
-    echo "logout";
+    echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='logout.php'  class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Logout</span></a></li></ul>";
 } else {
-    echo "login";
+    echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='#' data-toggle='modal' data-target='#SignModal' class='nav-link link'><span class='navLinks'><i class='fa fa-user-plus mr-2'></i>Register</span></a></li><li class='nav-item'><a href='#' data-toggle='modal' data-target='#LoginModal' class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Login</span></a></li></ul>";
 }
 ?>
-            <ul class="navbar-nav ml-auto">
+           <!--  <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a href="#" data-toggle="modal" data-target="#SignModal" class="nav-link link">
                         <span class="navLinks">
@@ -82,7 +95,7 @@ if (isset($_SESSION['email'])) {
                             <i class="fas fa-sign-in-alt mr-2"></i>Login</span>
                     </a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </nav>
 
@@ -337,10 +350,15 @@ if (isset($_SESSION['email'])) {
 							$("#alertLog").slideDown(500).delay(1000).slideUp(500);
                             $('#emailLog').val("");
                             $('#passLog').val("");
+                            var delay = 1500;
+                            setTimeout(function(){
+                                window.location = "index.php"; }, delay);
                         } else if(data.indexOf('pass') > -1){
                             $("#alertLog").addClass('alert-danger');
 							$("#alertLog").html('Password is incorrect');
 							$("#alertLog").slideDown(500).delay(1000).slideUp(500);
+                            /* $.session.set("email", emailSign);
+                            location.replace("index.php")l */
                         } else {
                             $("#alertLog").addClass('alert-danger');
 							$("#alertLog").html('Email is incorrect');

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,26 +58,19 @@
                     <a href="tourPlans.php" class="nav-link link">
                         <i class="fas fa-suitcase mr-2"></i>Tour plans</a>
                 </li>
-               
+
                 <li class="nav-item">
                     <a href="feedback.php" class="nav-link link">
                         <i class="far fa-smile mr-2"></i>Feedback</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a href="#" data-toggle="modal" data-target="#SignModal" class="nav-link link">
-                        <span class="navLinks">
-                            <i class="fa fa-user-plus mr-2"></i>Register</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" data-toggle="modal" data-target="#LoginModal" class="nav-link link">
-                        <span class="navLinks">
-                            <i class="fas fa-sign-in-alt mr-2"></i>Login</span>
-                    </a>
-                </li>
-            </ul>
+            <?php
+if (isset($_SESSION['email'])) {
+    echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='logout.php'  class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Logout</span></a></li></ul>";
+} else {
+    echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='#' data-toggle='modal' data-target='#SignModal' class='nav-link link'><span class='navLinks'><i class='fa fa-user-plus mr-2'></i>Register</span></a></li><li class='nav-item'><a href='#' data-toggle='modal' data-target='#LoginModal' class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Login</span></a></li></ul>";
+}
+?>
         </div>
     </nav>
 
@@ -296,7 +292,7 @@
 
     <script>
         $('#alertLog').slideUp();
-       
+
         $('#logButton').click(function () {
             $('#alertLog').removeClass('alert-success').removeClass('alert-danger');
             var emailLog = $('#emailLog').val();
@@ -329,6 +325,9 @@
 							$("#alertLog").slideDown(500).delay(1000).slideUp(500);
                             $('#emailLog').val("");
                             $('#passLog').val("");
+                            var delay = 1500;
+                            setTimeout(function(){
+                                window.location = "index.php"; }, delay);
                         } else if(data.indexOf('pass') > -1){
                             $("#alertLog").addClass('alert-danger');
 							$("#alertLog").html('Password is incorrect');

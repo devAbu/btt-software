@@ -22,19 +22,19 @@ if ($_REQUEST['task'] == "login") {
             if ($row['email'] == $emailLog) {
                 if ($row['password'] == $passLog) {
                     $query = "INSERT INTO login (name,`password`) VALUES ('$emailLog', '$passLog')";
-
                     $response = @mysqli_query($dbc, $query);
                     if ($response) {
-                        //echo ('sent');
+                        echo ('sent');
+                        session_start();
+                        $_SESSION["email"] = $row["email"];
 
-                        $_SESSION['email'] == $row['email'];
+                        //header("refresh: 2", 'url= index.php');
                     } else {
                         echo mysqli_error($dbc);
                     }
 
-                    session_start();
-                    $_SESSION['email'] == $emailLog;
-                    header('Location: index.php');
+                    //$_SESSION['email'] == $emailLog;
+
                 } else {
                     echo ('pass');
                 }
