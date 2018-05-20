@@ -67,7 +67,8 @@ session_start();
             </ul>
             <?php
 if (isset($_SESSION['email'])) {
-    echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='logout.php'  class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Logout</span></a></li></ul>";
+    $session = $_SESSION['email'];
+    echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='logout.php'  class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Logout</span></a></li></ul><input type='text'  value='$session' id='session' hidden name='session'>";
 } else {
     echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='#' data-toggle='modal' data-target='#SignModal' class='nav-link link'><span class='navLinks'><i class='fa fa-user-plus mr-2'></i>Register</span></a></li><li class='nav-item'><a href='#' data-toggle='modal' data-target='#LoginModal' class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Login</span></a></li></ul>";
 }
@@ -418,9 +419,17 @@ if (isset($_SESSION['email'])) {
                             />
                         </div>
                     </div>
-                    <div class="col-12 mt-4">
-                        <button class="btn btn-lg btn-success" style="width: 315px;" id="send" name="send"> Send request</button>
-                    </div>
+                    <?php
+if (isset($_SESSION['email'])) {
+    echo '<div class="col-12 mt-4">
+    <button class="btn btn-lg btn-success" style="width: 315px;" id="send" name="send"> Send request</button>
+</div>';
+} else {
+    echo '<a href="login.php"><div class="col-12 mt-4">
+    <button class="btn btn-lg btn-warning" style="width: 315px;" > LOGIN</button>
+</div></a>';
+}
+?>
                 </div>
             </div>
             <div class="col-3 offset-1 mt-4 mb-3">
@@ -502,6 +511,7 @@ if (isset($_SESSION['email'])) {
             var igman = $('#igman').is(':checked');
             var jahorina = $('#jahorina').is(':checked');
             var other = $('#other').val();
+            var session = $('#session').val();
 
             var check = "";
 
@@ -641,7 +651,7 @@ if (isset($_SESSION['email'])) {
                 $("#alert").fadeIn(500).delay(1000).fadeOut(500); */
             } else {
                 $.ajax({
-                    url: "./makeRequest.php?task=request&check="+check+"&people="+people+"&length="+length+"&period="+period+"&checkyes="+checkyes+"&price="+price+"&budget="+budget,
+                    url: "./makeRequest.php?task=request&check="+check+"&people="+people+"&length="+length+"&period="+period+"&checkyes="+checkyes+"&price="+price+"&budget="+budget+"&session="+session,
                     success: function (data){
                         if(data.indexOf('sent') > -1){
                             $("#alertReq").addClass('alert-success');

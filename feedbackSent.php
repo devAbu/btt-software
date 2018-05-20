@@ -10,10 +10,10 @@ $dbc = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die('could not
 mysqli_set_charset($dbc, "utf8");
 
 $feedback = $_REQUEST['feedback'];
-$name = $_SESSION['email'];
+$session = $_REQUEST['session'];
 
 if ($_REQUEST['task'] == "feedback") {
-    $query = "INSERT INTO feedback (`name`, `content`) VALUES ('$name','$feedback')";
+    $query = "INSERT INTO feedback (`name`, `content`) VALUES ('$session','$feedback')";
 
     $response = @mysqli_query($dbc, $query);
     if ($response) {
