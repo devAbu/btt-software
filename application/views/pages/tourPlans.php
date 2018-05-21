@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,7 +67,8 @@ session_start();
             </ul>
             <?php
 if (isset($_SESSION['email'])) {
-    echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='logout'  class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Logout</span></a></li></ul>";
+    $session = $_SESSION['email'];
+    echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='logout'  class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Logout</span></a></li></ul><input type='text'  value='$session' id='session' hidden name='session'>";
 } else {
     echo "<ul class='navbar-nav ml-auto'><li class='nav-item'><a href='#' data-toggle='modal' data-target='#SignModal' class='nav-link link'><span class='navLinks'><i class='fa fa-user-plus mr-2'></i>Register</span></a></li><li class='nav-item'><a href='#' data-toggle='modal' data-target='#LoginModal' class='nav-link link'><span class='navLinks'><i class='fas fa-sign-in-alt mr-2'></i>Login</span></a></li></ul>";
 }
@@ -374,7 +376,7 @@ if (isset($_SESSION['email'])) {
 
 <section>
     <div class="row no-gutters">
-        <div class="col-5 offset-2">
+        <!-- <div class="col-5 offset-2">
             <input id="search-loged" type="text" class="form-control mt-2" placeholder="Search...">
         </div>
         <div class="col-2">
@@ -383,8 +385,8 @@ if (isset($_SESSION['email'])) {
                 <i class="fas fa-sliders-h mr-2" data-fa-transform="rotate-90"></i>
                 Filters
             </button>
-        </div>
-        <div class="col-2">
+        </div> -->
+        <div class="col-2 offset-lg-4">
             <button id="makeTour" onclick="window.open('makeTour');" class="btn btn-warning my-2  ml-4" style="width:200px;">
                 <i class="fa fa-paper-plane mr-2"></i>
                 Make Own Tour
@@ -392,7 +394,7 @@ if (isset($_SESSION['email'])) {
         </div>
     </div>
 
-    <div class="collapse" id="collapseExample">
+    <!-- <div class="collapse" id="collapseExample">
         <div class="row">
             <div class=" col-12 text-success offset-1 mt-2 mb-5 ">
                 <i class="fas fa-rss "></i>
@@ -464,7 +466,7 @@ if (isset($_SESSION['email'])) {
                 <br />
             </div>
         </div>
-    </div>
+    </div> -->
 </section>
 <section>
 
@@ -473,7 +475,7 @@ if (isset($_SESSION['email'])) {
 define('DB_USER', 'abu');
 define('DB_PASSWORD', 'aburefko159753');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'btt');
+define('DB_NAME', 'btt-software');
 /*
 $dbc = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) or die('could not connect' . mysqli_connect_error());
  */
@@ -492,31 +494,14 @@ $count = $result->num_rows;
 
 if ($count > 0) {
     while ($row = $result->fetch_assoc()) {
-        /* echo " - Type: " . $row["type"] . " - Title " . $row["title"] . " - Description " . $row["description"] . "- People " . $row["people"] . " -Available " . $row["available"] . " - Price " . $row["price"] . " - Taken number " . $row["numTaken"] . "<br>"; */
-
-        /* $myJSON = json_encode($row);
-        echo "data: [" . "$myJSON" . "," . "]"; */
-        //echo ("data: [");
-
-        /* echo ("'");
-        $i = 0;
-        foreach ($result as $row) {
-        $object = json_encode($row);
-        print_r($object);
-
-        if ($i < $count - 1) {
-        echo (",");
-        }
-        $i++;
-        }
-        echo ("'"); */
-
-        //echo ("]");
-        // echo " title: " . $row["title"] . " <br>";
-        echo '<div class="card text-center mt-4 ">
+        if (isset($_SESSION["email"])) {
+            $session = $_SESSION["email"];
+            echo '<form action="userTour" method="POST"><div class="card text-center mt-4 ">
         <div class="card-header text-success h3 text-uppercase ">' .
-            $row["type"] . '
-        </div>
+                $row["type"] . '
+		</div>
+		<input type="text" value=" ' . $session . '  "  name="session" id="session" >
+        <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" >
         <div class="card-body ">
             <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
             <a href="# " style="text-decoration:none; ">
@@ -562,7 +547,7 @@ if ($count > 0) {
                     </p>
                 </li>-->
                 <li class="list-group-item " style="border:none">
-                    <input type="button " class="btn btn-warning " value="Select " style="width:100px; " />
+                    <input type="submit" name="select" id="select" class="btn btn-warning " value="Select " style="width:100px; " />
                 </li>
             </ul>
         </div>
@@ -570,8 +555,12 @@ if ($count > 0) {
             <small class="text-muted ">
                 <i class="far fa-clock mr-2 "></i> ' . $row["days"] . '</small>
         </div>
-    </div>';
+	</div></form>
+	';
 
+        } else {
+
+        }
     }
 } else {
     echo "0 results";
@@ -580,6 +569,28 @@ $conn->close();
 ?>
 
 </section>
+
+<!-- <script>
+	$('#select').click(function () {
+		var session = $('#session').val();
+		var idnum = $('#idnum').val();
+
+		$.ajax({
+				url: "./userTour?task=request&session="+session+"&idnum="+idnum,
+				success: function (data){
+					if(data.indexOf('sent') > -1){
+						window.location = "index";
+					} else {
+						window.location = "tourPlans";
+					}
+				},
+				error: function (data, err){
+					window.location = "tourPlans";
+                    }
+
+		)}
+</script> -->
+
 
 <footer class="bg-secondary " style="margin-top:0px; ">
         <div class="row no-gutters ">
@@ -647,43 +658,6 @@ $conn->close();
         </div>
     </div>
 
-    <script>
-        $(function () {
-            var otherPlaces = [
-                //iz baze podaci
-                "abu"
-            ];
-            /* function split( val ) {
-                return val.split( /,\s* / );
-            }
-            function extractLast( term ) {
-            return split( term ).pop();
-            } */
-            $("#search-loged").autocomplete({
-                source: otherPlaces
-                /* function( request, response ) {
-        // delegate back to autocomplete, but extract the last term
-        response( $.ui.autocomplete.filter(
-        otherPlaces, extractLast( request.term ) ) );
-        },
-        focus: function() {
-            // prevent value inserted on focus
-            return false;
-        },
-        select: function( event, ui ) {
-            var terms = split( this.value );
-            // remove the current input
-            terms.pop();
-            // add the selected item
-            terms.push( ui.item.value );
-            // add placeholder to get the comma-and-space at the end
-            terms.push( "" );
-            this.value = terms.join( ", " );
-            return false;
-        } */
-            });
-        });
-    </script>
 
 </body>
 
