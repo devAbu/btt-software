@@ -579,41 +579,41 @@ if (isset($_SESSION['email'])) {
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="hotel">
+                        <a href="#">
                             <img src="images/krone.jpg" alt="slide1" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="hotel" style="text-decoration:none !important;">
+                            <a href="#" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Krone Hotel</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="hotel">
+                        <a href="#">
                             <img src="images/scc.jpg" alt="slide2" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="hotel" style="text-decoration:none !important;">
+                            <a href="#" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Al Shidi - SCC Hotel</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item active" style="border-radius:5%;">
-                        <a href="hotel">
+                        <a href="#">
                             <img src="images/malak.jpg" alt="slide3" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="hotel" style="text-decoration:none !important;">
+                            <a href="#" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Malak Hotel</h3>
                             </a>
                         </div>
                     </div>
                     <div class="carousel-item" style="border-radius:5%;">
-                        <a href="hotel">
+                        <a href="#">
                             <img src="images/mariot.jpg" alt="slide4" style="border-radius:5%;" class="d-block img-fluid index2">
                         </a>
                         <div class="carousel-caption">
-                            <a href="hotel" style="text-decoration:none !important;">
+                            <a href="#" style="text-decoration:none !important;">
                                 <h3 class="display-4 text-warning">Marriott Hotel</h3>
                             </a>
                         </div>
