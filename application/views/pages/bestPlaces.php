@@ -8,8 +8,9 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="css/style.css" type="text/css" rel="stylesheet">
-    <title>BTT</title>
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+	<title><?php echo $title; ?></title>
+    <!-- <title>BTT</title> -->
     <link rel="icon" type="image/ico" href="images/icon.ico" />
     <meta name="author" content="AAO">
     <meta name="keywords" content="btt, bosnian, tourist, travel, agency, arabic, bosna">

@@ -10,7 +10,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="css/style.css" type="text/css" rel="stylesheet">
-    <title>BTT</title>
+    <!-- <title>BTT</title> -->
+	<title><?php echo $title; ?></title>
     <link rel="icon" type="image/ico" href="images/icon.ico" />
     <meta name="author" content="AAO">
     <meta name="keywords" content="btt, bosnian, tourist, travel, agency, arabic, bosna">
@@ -374,8 +375,8 @@ mysqli_set_charset($dbc, "utf8");
 $idnum = $_REQUEST['idnum'];
 $session = $_REQUEST['session'];
 
-echo $idnum;
-echo $session;
+//echo $idnum;
+//echo $session;
 
 /* $sql = "SELECT * FROM tourplan WHERE ID = '$idnum'";
 $result = $dbc->query($sql);
@@ -386,7 +387,7 @@ while ($row = $result->fetch_assoc()) { */
 $query = "INSERT INTO usertour (`name`,`tourID`) VALUES ('$session', '$idnum')";
 $result = @mysqli_query($dbc, $query);
 if ($result) {
-    echo ('sent');
+    //echo ('sent');
     $sql = "SELECT * FROM tourplan where ID  = $idnum ";
     $result = $dbc->query($sql);
 
@@ -396,8 +397,8 @@ if ($result) {
         while ($row = $result->fetch_assoc()) {
             /*  echo "<input type='text' value=' " . $row['ID'] . " ' hidden name='idnum' id='idnum'>"; */
             echo '<form action="deleteTour" method="POST">
-			<input type="text" value=" ' . $row["ID"] . ' " name="idnum" id="idnum">
-			<input type="text" value=" ' . $session . ' " name="session" id="session"><div class="card text-center mt-4 ">
+			<input type="text" value=" ' . $row["ID"] . ' " name="idnum" id="idnum" hidden>
+			<input type="text" value=" ' . $session . ' " name="session" id="session" hidden><div class="card text-center mt-4 ">
         <div class="card-header text-success h3 text-uppercase ">' .
                 $row["type"] . '
         </div>

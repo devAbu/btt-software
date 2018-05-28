@@ -10,7 +10,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="css/style.css" type="text/css" rel="stylesheet">
-    <title>BTT</title>
+    <!-- <title>BTT</title> -->
+	<title><?php echo $title; ?></title>
     <link rel="icon" type="image/ico" href="images/icon.ico" />
     <meta name="author" content="AAO">
     <meta name="keywords" content="btt, bosnian, tourist, travel, agency, arabic, bosna">
@@ -500,8 +501,8 @@ if ($count > 0) {
         <div class="card-header text-success h3 text-uppercase ">' .
                 $row["type"] . '
 		</div>
-		<input type="text" value=" ' . $session . '  "  name="session" id="session" >
-        <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" >
+		<input type="text" value=" ' . $session . '  "  name="session" id="session" hidden>
+        <input type="text" value=" ' . $row["ID"] . ' "  name="idnum" id="idnum" hidden>
         <div class="card-body ">
             <h5 class="card-title text-left ml-5 h1 text-primary "> ' . $row["title"] . '</h5>
             <a href="# " style="text-decoration:none; ">

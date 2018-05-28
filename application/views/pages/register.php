@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="css/style.css" type="text/css" rel="stylesheet">
-    <title>BTT</title>
+    <!-- <title>BTT</title> -->
+	<title><?php echo $title; ?></title>
     <link rel="icon" type="image/ico" href="images/icon.ico" />
     <meta name="author" content="AAO">
     <meta name="keywords" content="btt, bosnian, tourist, travel, agency, arabic, bosna">
@@ -42,7 +43,7 @@
                 <li class="nav-item">
                     <a href="tourPlans" class="nav-link"><i class="fas fa-suitcase mr-2"></i>Tour plans</a>
                 </li>
-               
+
                 <li class="nav-item">
                     <a href="feedback" class="nav-link"><i class="far fa-smile mr-2"></i>Feedback</a>
                 </li>
@@ -88,11 +89,11 @@
                         </li>
                     </ul>
                 </div>
-                
+
                 <div class="card-body text-center" style="margin-left:100px !important;">
                     <button class="btn btn-warning text-white" id="signButton" name="signButton">Sign up for free<i class="fas fa-user-plus ml-2"></i></button>
                 </div>
-                
+
             </div>
             <div class="alert mt-3 ml-3" id="alert" style="width:400px;"></div>
         </div>
@@ -100,7 +101,7 @@
             <p style="font-size:20px; ">&copy; 2018 AAO</p>
         </div>
     </div>
-    
+
     <script>
             $('#alert').slideUp();
             $('#signButton').click(function () {
@@ -109,12 +110,12 @@
                 var lastSign = $('#lastSign').val();
                 var emailSign = $('#emailSign').val();
                 var passSign = $('#passSign').val();
-    
+
                 function validateEmail($emailSign) {
                     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
                     return emailReg.test($emailSign);
                 }
-    
+
                 if (firstSign == "") {
                     $("#alert").addClass('alert-danger');
                     $("#alert").html("Your first name is required!!!");

@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="css/style.css" type="text/css" rel="stylesheet">
-    <title>BTT</title>
+    <!-- <title>BTT</title> -->
+	<title><?php echo $title; ?></title>
     <link rel="icon" type="image/ico" href="images/icon.ico" />
     <meta name="author" content="AAo">
     <meta name="keywords" content="btt, bosnian, tourist, travel, agency, arabic, bosna">
